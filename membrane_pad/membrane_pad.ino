@@ -3,10 +3,10 @@
 const byte ROWS = 4; //four rows
 const byte COLS = 4; //four columns
 char keys[ROWS][COLS] = {
-  {'B','5','6','4'},
-  {'D','0','#','*'},
-  {'C','8','9','7'},
-  {'A','2','3','1'}
+  {'D','#','0','*'},
+  {'C','9','8','7'},
+  {'B','6','5','4'},
+  {'A','3','2','1'}
 };
 
 byte rowPins[ROWS] = {7, 6, 5, 4}; //connect to the row pinouts of the keypad

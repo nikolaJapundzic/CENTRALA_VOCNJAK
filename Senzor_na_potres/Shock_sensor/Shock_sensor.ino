@@ -11,12 +11,12 @@ void setup () {
 
 void loop () {
   val = digitalRead (shock); // read the value from KY-002
-  if (val == HIGH ) {// when sensor detects shock, LED flashes  
-    digitalWrite(Led, LOW);
+  if (val == LOW ) {// when sensor detects shock, LED flashes  
+    digitalWrite(Led, HIGH);
 
     brojac++;
     Serial.println(brojac);
   } else {
-    digitalWrite (Led, HIGH);
+    digitalWrite (Led, LOW);
   }
 }

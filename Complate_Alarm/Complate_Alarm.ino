@@ -4,10 +4,10 @@
 const byte ROWS = 4; //four rows
 const byte COLS = 4; //four columns
 char keys[ROWS][COLS] = {
-  {'B','5','6','4'},
-  {'D','0','#','*'},
-  {'C','8','9','7'},
-  {'A','2','3','1'}
+  {'D','#','0','*'},
+  {'C','9','8','7'},
+  {'B','6','5','4'},
+  {'A','3','2','1'}
 };
 
 byte rowPins[ROWS] = {7, 6, 5, 4}; //connect to the row pinouts of the keypad
@@ -37,7 +37,7 @@ LiquidCrystal_I2C lcd(I2C_ADDR,En_pin,Rw_pin,Rs_pin,D4_pin,D5_pin,D6_pin,D7_pin)
 #include <SoftwareSerial.h>
 #include <Sim800l.h>
 Sim800l Sim800l;
-String text;     // to storage the text of the sms
+String text;     // to storage the text of the sms 
 uint8_t index;   // to indicate the message to read.
 //SoftwareSerial sim800l(10, 11); // RX, TX
 const int buttonPin = 3;     // the number of the pushbutton pin
@@ -324,7 +324,7 @@ sensorValue3 = analogRead(A2);
       //ZA SLANJE PORUKE PARCE KODA RADI SA SIM0l BIBLIOTEKOM
 
 
-      Sim800l.callNumber(brojTelefoncica);
+      //Sim800l.callNumber(brojTelefoncica);
       
       flagZICA = false;
       }
@@ -343,7 +343,8 @@ sensorValue3 = analogRead(A2);
         lcd.setCursor (14,0);
         lcd.print("S");
 
-        String brojBRE = "+381";
+        //ZA SLANJE PORUKE PARCE KODA RADI SA SIM0l BIBLIOTEKOM
+      String brojBRE = "+381";
       for(int i = 1; i < brojTelefona.length(); i++){
         brojBRE = brojBRE + brojTelefona[i];
       }
@@ -351,8 +352,9 @@ sensorValue3 = analogRead(A2);
       char brojTelefoncica [duzinaNiza];
       brojBRE.toCharArray(brojTelefoncica, duzinaNiza);      
       Sim800l.sendSms(brojTelefoncica ,"Uredjaj je potresen!");
-        //SendTextMessage("Uredjaj je potresen!");
-        //Call();
+      //ZA SLANJE PORUKE PARCE KODA RADI SA SIM0l BIBLIOTEKOM
+
+        
         flagSHOCH = false;
         delay(1000);
       }
